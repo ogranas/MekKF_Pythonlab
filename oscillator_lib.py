@@ -223,7 +223,7 @@ def fit_steady_state(time,data,p=None, wd=None):
 
     if ((wd is None) and (p is None)):
         def sin_func(t, A, w, p):
-            return A*np.sin(w*t+p)   
+            return A*np.cos(w*t+p)   
  
         tt = np.array(time)
         yy = np.array(data)
@@ -239,7 +239,7 @@ def fit_steady_state(time,data,p=None, wd=None):
             
     elif ((wd is None) and (p is not None)):
         def sin_func(t, A, w, p):
-            return A*np.sin(w*t+p)   
+            return A*np.cos(w*t+p)   
  
         tt = np.array(time)
         yy = np.array(data)
@@ -255,7 +255,7 @@ def fit_steady_state(time,data,p=None, wd=None):
             
     elif ((wd is not None) and (p is None)):
         def sin_func(t, A, p):
-            return A*np.sin(wd*t+p)   
+            return A*np.cos(wd*t+p)   
  
         tt = np.array(time)
         yy = np.array(data)
@@ -272,7 +272,7 @@ def fit_steady_state(time,data,p=None, wd=None):
 
     else: # both set
         def sin_func(t, A):
-            return A*np.sin(wd*t+p)   
+            return A*np.cos(wd*t+p)   
  
         tt = np.array(time)
         yy = np.array(data)
@@ -290,5 +290,5 @@ def fit_steady_state(time,data,p=None, wd=None):
                          
 
     # return sin_func(tt, A, w, p), [A, w, p]
-    return A*np.sin(w*tt+p), [A, w, p]
+    return A*np.cos(w*tt+p), [A, w, p]
 
